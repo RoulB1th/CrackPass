@@ -4,3 +4,6 @@ require_once ROOT . '/vendor/autoload.php';
 
 #Router
 require_once ROOT . '/router/web.php';
+
+#Functions
+require_once ROOT . '/functions.php';

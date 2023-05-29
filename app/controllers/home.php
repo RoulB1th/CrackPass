@@ -2,10 +2,14 @@
 
 namespace App\controllers;
 
+require_once ROOT . '/functions.php';
+
 class home
 {
     public static function index(): void
     {
-        echo "hello";
+        view("home", [
+            "name" => "Saad"
+        ]);
     }
 }
