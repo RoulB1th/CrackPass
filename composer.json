@@ -1,0 +1,17 @@
+{
+    "name": "roul/php",
+    "description": "Making a Web Application Called CrackPass Where People would Published Cracked Versions Of Various Video Games.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Saad Naami",
+            "email": "123831916+RoulB1th@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
