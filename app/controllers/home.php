@@ -8,8 +8,10 @@ class home
 {
     public static function index(): void
     {
-        view("home", [
-            "name" => "Saad"
-        ]);
+        view("home");
+    }
+    public static function register(): void
+    {
+        view("register");
     }
 }

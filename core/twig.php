@@ -13,9 +13,12 @@ class twig
     {
         $loader = new FilesystemLoader(ROOT . '/views');
         static::$twig = new Environment($loader);
+        //Add Globals Here
+        static::$twig->addGlobal("isLogged", $_SESSION['isLogged'] ?? false);
     }
     public static function render(string $view, array $args = []): void
     {
         echo static::$twig->render("{$view}.twig", $args);
     }
+
 }

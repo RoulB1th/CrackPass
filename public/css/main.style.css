@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Odibee Sans', cursive;
+   list-style-type: none;
+}
+body,html{
+    overflow-x: hidden;
+}
+body{
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    background-color: #31220B;
+}
+#nav{
+    background-color: #FFD003;
+    border-bottom: 2px solid black;
+    border-bottom-style:groove;
+    width: 100vw;
+}
+
+#top-nav{
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 50px;
+    grid-template-columns: 1fr 2fr 1fr;
+    border-bottom: 2px solid black;
+}
+#top-nav *{
+    text-align: center;
+}
+#top-nav #logo-area a{
+    color: black;
+}
+#top-nav #logo-area img{
+    margin-top: 10px;
+    width: 150px;
+    border-left-style: double;
+    border-right-style: double;
+}
+#top-nav #desc-area p{
+    margin-top: 20px;
+    font-size: 40px;
+}
+#top-nav #desc-area span{
+    margin-top: 20px;
+    font-size: 30px;
+}
+#top-nav #input-area p{
+    margin-top: 20px;
+    font-size: 30px;
+}
+#input-area input{
+    margin: 5px 50px;
+    padding: 5px 0 5px 5px;
+    font-size: 25px;
+}
+#bottom-nav{
+    background-color: #FF9D03;
+    padding: 10px 15px;
+    margin: 0 auto;
+}
+#bottom-nav ul{
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+    margin: 0 auto;
+    box-shadow: 5px 5px;
+}
+#nav-list{
+    background-color: white;
+    color: black;
+    width: 100%;
+    background-color: #4AC4F7;
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: none;
+    transition: all 250ms;
+}
+#nav-list:hover{
+    background-color: #7BD9FF;
+    color: #3150CF;
+    text-decoration: underline;
+}
+.sortBy{
+    background-color: #3681DE;
+    color: white;
+    width: 100%;
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 35px;
+}
+#main, .main{
+    background-color: white;
+    width: 90vw;
+    padding: 5px 10px;
+    margin: 15px auto;
+}
+@media only screen and (max-width: 600px) {
+    #top-nav{
+        display: block;
+    }
+    #nav-list{
+        padding: 1px;
+        font-size: 20px;
+        padding-top: 35px;
+    }
+}

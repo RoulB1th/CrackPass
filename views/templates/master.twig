@@ -3,10 +3,23 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" href="/css/main.style.css"> {% block style %}{% endblock %}
+		<link rel="shortcut icon" href="/images/Icon.png" type="image/x-icon">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+		<title>
+			{% block title %}CrackPass
+			{% endblock %}
+		</title>
 	</head>
 	<body>
-		<h1>Hello</h1>
-	</body>
-</html>
+		<div id="app">
+			<header>
+				{% include "templates/navbar.twig" %}
+			</header>
+			<main id="main" class="main"> {% block body %}{% endblock %}
+				</main>
+			</div>
+			{% block script %}{% endblock %}
+			<script async crossorigin="anonymous" data-clerk-publishable-key="pk_test_ZW1lcmdpbmctc3F1aXJyZWwtMzcuY2xlcmsuYWNjb3VudHMuZGV2JA" onload="window.Clerk.load()" src="https://emerging-squirrel-37.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js" type="text/javascript"></script>
+		</body>
+	</html>

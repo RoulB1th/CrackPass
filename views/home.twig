@@ -1,1 +1,65 @@
 {% extends "templates/master.twig" %}
+{% block title %}
+	HomePage
+{% endblock %}
+{% block style %}
+	<link rel="stylesheet" href="/css/home.style.css">
+{% endblock %}
+{% block body %}
+	<div id="introduction">
+		<div id="introduction-top">
+			<h1>CrackPass</h1>
+		</div>
+		<hr id="first-hr">
+		<div id="introduction-main">
+			<p>
+				<span style="margin-left:20px;">Introducing
+				</span>
+				CrackPass, the go-to website for gamers seeking an immersive and diverse gaming experience.</p>
+			<p>
+				<span style="margin-left: 20px;">From
+				</span>
+				action-packed adventures to mind-bending puzzles, CrackPass offers a wide range of realistic games that push the boundaries of creativity and captivate players.</p>
+			<p>
+				<span style="margin-left:20px;">With
+				</span>
+				a focus on quality and innovation, this platform is a hub for both aspiring developers and avid gamers alike, providing a platform for sharing and discovering thrilling gaming experiences.</p>
+		</div>
+	</div>
+	<div id="games-section">
+		<div id="trending-games">
+			<h1>Trending Games</h1>
+			<div id="games">
+				<div id="game">
+					<div id="top-detail">
+						<a href="#">
+							<img src="/images/Icon.png" alt="">
+						</a>
+						<a href="#">Game</a>
+					</div>
+					<div id="bottom-detail">
+						<p>Genre</p>
+						<p>Date</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr id="first-hr">
+	<div id="details">
+		<div id="want-to-publish">
+			<h1>Want To Publish ?
+			</h1>
+			<p>Make Sure To Register
+				<a href="/register">Here</a>
+			</p>
+		</div>
+		<div id="send-feedback-on-games">
+			<h1>Want To Help Us ?
+			</h1>
+			<p>Send Us Feedback About Games at
+				<a href="/contact">crackpass@buisness.com</a>
+			</p>
+		</div>
+	</div>
+{% endblock %}

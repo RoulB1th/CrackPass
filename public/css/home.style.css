@@ -1,0 +1,65 @@
+#introduction{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 5px 10px;
+}
+#introduction-top{
+    text-align: center;
+    font-size: 30px;
+}
+#introduction-main{
+    letter-spacing: 2px;
+    font-size: 30px;
+    margin: 0 auto;
+}
+#first-hr{
+    margin: 10px 100px 30px 100px;
+}
+#games-section{
+    margin-top: 30px;
+}
+#games{
+    display: flex;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 10px;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+#trending-games h1{
+    margin-bottom: 20px;
+}
+#game{
+    width: 300px;
+    color: black;
+}
+#game #top-detail img{
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+    box-shadow: 5px 5px black;
+}
+#game #top-detail a{
+    font-size: 35px;
+    color: black;
+}
+#game #top-detail a:hover{
+    color: #3150CF;
+}
+#game #bottom-detail{
+    display: flex;
+    justify-content: space-between;
+}
+#game #bottom-detail p{
+    font-size: 25px;
+}
+#details div{
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+#details div p{
+    font-size: 20px;
+}
