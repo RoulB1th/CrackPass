@@ -7,3 +7,6 @@ function view(string $file, array $args = []): void
     $twig = new twig;
     $twig::render($file, $args);
 }
+function redirect(string $uri){
+    header("location:/$uri");
+}

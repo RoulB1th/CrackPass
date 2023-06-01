@@ -3,6 +3,7 @@
 namespace Core;
 
 require_once ROOT . '/vendor/autoload.php';
+require_once ROOT . '/functions.php';
 use FastRoute\RouteCollector;
 use FastRoute\Dispatcher;
 
@@ -33,7 +34,10 @@ class router
         $routeInfo = static::$dispatcher->dispatch($httpMethod, $uri);
         switch ($routeInfo[0]) {
             case Dispatcher::NOT_FOUND:
-                echo "not found";
+                http_response_code(404);
+                view("404",[
+                    "uri"=>$uri
+                ]);
                 break;
             case Dispatcher::METHOD_NOT_ALLOWED:
                 $allowedMethods = $routeInfo[1];
