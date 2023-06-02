@@ -12,6 +12,13 @@ class home
     }
     public static function register(): void
     {
+        if(isset($_SESSION['isLogged'])){
+            redirect("/");
+        }
         view("register");
+    }
+    public static function test() : void 
+    {
+        echo "text";
     }
 }

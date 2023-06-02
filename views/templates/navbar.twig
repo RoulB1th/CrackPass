@@ -23,4 +23,17 @@
 			<a href="#" id="nav-list">Date</a>
 		</ul>
 	</div>
+	<div id="extra-nav">
+		<div id="buttons">
+			{% if isLogged %}
+				<a href="/logout">Logout</a>
+			{% endif %}
+			{% if not isLogged %}
+				<a href="/login">Login</a>
+				<a href="/register">Register</a>
+				<a href="/contact">Contact Us</a>
+			{% endif %}
+			<a href="/users">Users</a>
+		</div>
+	</div>
 </nav>

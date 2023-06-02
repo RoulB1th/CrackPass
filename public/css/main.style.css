@@ -19,7 +19,6 @@ body{
 #nav{
     background-color: #FFD003;
     border-bottom: 2px solid black;
-    border-bottom-style:groove;
     width: 100vw;
 }
 
@@ -110,5 +109,39 @@ body{
         padding: 1px;
         font-size: 20px;
         padding-top: 35px;
+    }
+}
+#extra-nav{
+    width: 100%;
+    background-color: #A87312;
+    padding: 8px;
+    border-top: 1px solid black;
+}
+#buttons{
+    display: flex;
+    gap: 12px;
+}
+#buttons a{
+    color: #2b2b2b;
+    padding: 1px 5px 0 5px;
+    background-color: #ffaa03;
+    text-decoration: none;
+    border: 2px solid #ffd525;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #e18000;
+    font-size: 30px;
+}
+#buttons a:hover{
+    text-decoration: underline;
+}
+#buttons a:active{
+    box-shadow: 0 1px #e18000;
+    transform: translateY(3px);
+}
+@media only screen and (max-width: 600px){
+    #buttons{
+        justify-content: center;
+        display: flex;
+        align-items: center;
     }
 }

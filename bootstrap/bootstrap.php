@@ -7,3 +7,6 @@ require_once ROOT . '/router/web.php';
 
 #Functions
 require_once ROOT . '/functions.php';
+
+#Error Handling
+require_once ROOT . '/core/error_handling.php';

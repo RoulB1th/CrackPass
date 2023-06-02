@@ -28,3 +28,16 @@
     font-size: 25px;
     margin-top: 9px;
 }
+#validation-error{
+    font-size: 25px;
+    color: #B00020;
+}
+#pfp{
+    margin-left: 120px;
+}
+.displayedImage{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
