@@ -1,3 +1,7 @@
+
+#warning-img{
+    width: 5px;
+}
 #introduction{
     display: flex;
     flex-direction: column;
@@ -62,4 +66,9 @@
 }
 #details div p{
     font-size: 20px;
+}
+#warning-image{
+    width: 50px;
+    background-color: black;
+
 }

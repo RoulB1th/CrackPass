@@ -1,0 +1,51 @@
+{% extends "templates/master.twig" %}
+{% block body %}
+    <div id="top-section">
+        <div id="game-section">
+            <div id="game-title">
+                <h1>{{game['name']}}</h1>
+            </div>
+            <div id="game-details">
+                <p>
+                    {{game["description"]}}
+                </p>
+                <img src="/{{primaryPicture}}" alt="">
+                {% if secondaryPicture %}
+                    <img src="/{{secondaryPicture}}" alt="">
+                {% endif %}
+                {% if thirdPicture %}
+                    <img src="/{{thirdPicture}}" alt="">
+                {% endif %}
+            </div>
+            <div id="download-links">
+                <h1>Drive</h1>
+                {% if not game["drive"] %}
+                    <p>Link Not Provided</p>
+                {% else %}
+                    <a href="{{game["drive"]}}">Download</a>
+                {% endif %}
+                {# Mega #}
+                <h1>Mega.NZ</h1>
+                {% if not game["meganz"] %}
+                    <p>Link Not Provided</p>
+                {% else %}
+                    <a href="{{game["meganz"]}}">Download</a>
+                {% endif %}
+                {# AnonFiles #}
+                <h1>Anonfiles</h1>
+                {% if not game["anonfiles"] %}
+                    <p>Link Not Provided</p>
+                {% else %}
+                    <a href="{{game["anonfiles"]}}">Download</a>
+                {% endif %}
+                {# torrent #}
+                <h1>Torrent Link</h1>
+                {% if not game["torrent"] %}
+                    <p>Link Not Provided</p>
+                {% else %}
+                    <a href="{{game["torrent"]}}">Download</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

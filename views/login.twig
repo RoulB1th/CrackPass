@@ -4,9 +4,9 @@
 {% endblock %}
 {% block body %}
     <div id="logging-area">
-        <h1>Register</h1>
+        <h1>Login</h1>
         <div id="logging-form">
-            <form action="/register/new" method="post" enctype="multipart/form-data">
+            <form action="/login/new" method="post" enctype="multipart/form-data">
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username">
                 {% if errors['username'] %}
@@ -18,19 +18,6 @@
                 {% if errors['password'] %}
                     <p id="validation-error">{{errors['password']}}</p>
                 {% endif %}
-                <br>
-                <label for="pfp">Profile Picture </label>
-                <input type="file" name="picture" id="pfp" accept="image/*">
-                <br>
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email">
-                {% if errors['email'] %}
-                    <p id="validation-error">{{errors['email']}}</p>
-                {% endif %}
-                <br>
-                {% if errors['file'] %}
-                    <p id="validation-error">{{errors['file']}}</p>
-                {% endif %}
                 {% if errors["limit"] %}
                     <p id="validation-error">{{errors["limit"]}}</p>
                 {% endif %}
@@ -38,7 +25,7 @@
                     <p id="validation-error">{{errors['exist']}}</p>
                     <br>
                 {% endif %}
-                <button>Register</button>
+                <button>Login</button>
             </form>
         </div>
     </div>

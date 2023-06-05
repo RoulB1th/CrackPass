@@ -1,0 +1,78 @@
+{% extends "templates/master.twig" %}
+{% block style %}
+    <link rel="stylesheet" href="/css/post.style.css">
+{% endblock %}
+{% block body %}
+    {% if not isLogged %}
+        <div id="isNotLogged-area">
+            <h1>Please Login In Order To Post Games :-)</h1>
+        </div>
+    {% else %}
+        <div id="post-area">
+            <div id="post">
+                <h1>Launch A New Game</h1>
+                <div id="post-form">
+                      <form action="/game/post" method="post" enctype="multipart/form-data">
+                            <label for="game-title">Game Title</label>
+                            <br>
+                            <input type="text" name="title" id="game-title">
+                            {% if errors['title'] %}
+                                <p id="validation-error">{{errors['title']}}</p>
+                            {% endif %}
+                            <br>
+                            <label for="game-description">Description</label>
+                            <br>
+                            <textarea name="description" id="game-description" cols="30" rows="10"></textarea>
+                            {% if errors['desc'] %}
+                                <p id="validation-error">{{errors['desc']}}</p>
+                            {% endif %}
+                            <br>
+                            <label for="drive">Google Drive</label>
+                            <br>
+                            <input type="text" name="drive" id="drive">
+                            <br>
+                            <label for="mega">MegaNZ</label>
+                            <br>
+                            <input type="text" name="mega" id="mega">
+                            <br>
+                            <label for="torrent">Torrent</label>
+                            <br>
+                            <input type="text" name="torrent" id="torrent">
+                            <br>
+                            <label for="anon">Anonfiles</label>
+                            <br>
+                            <input type="text" name="anon" id="anon">
+                            <br>
+                            <label for="youtube">Youtube Gameplay</label>
+                            <br>
+                            <input type="text" name="youtube" id="youtube">
+                            <br>
+                            <label for="image">Game ScreenShot</label>
+                            <br>
+                            <input type="file" name="image[]" id="image" multiple>
+                            {% if errors['limit'] %}
+                                <p id="validation-error">{{errors['limit']}}</p>
+                            {% endif %}
+                            {% if errors['size'] %}
+                                <p id="validation-error">{{errors['size']}}</p>
+                            {% endif %}
+                            {% if errors['rate'] %}
+                                <p id="validation-error">{{errors['rate']}}</p>
+                            {% endif %}
+                            {% if errors['count'] %}
+                                <p id="validation-error">{{errors['count']}}</p>
+                            {% endif %}
+                            <div id="images">
+                                
+                            </div>
+                            <br>
+                            <button>Submit</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+{% block script %}
+<script src="/js/post.js"></script>
+{% endblock %}

@@ -1,4 +1,22 @@
 {% extends "templates/master.twig" %}
+{% block style %}
+    <link rel="stylesheet" href="/css/users.style.css">
+{% endblock %}
 {% block body %}
     <h1>Users With Most Games Posted </h1>
+    <div id="users-area">
+        <div id="users">
+            {% for user in users %}
+                <div id="user">
+                    <h1>{{user["username"]}}</h1>
+                    {% for avatars in avatar %}
+                        {% if avatars["id"] == user["avatar_id"] %}
+                            <img id="user-pfp" src="/{{avatars["uri"]}}" alt="">
+                        {% endif %}
+                    {% endfor %}
+                    <p id="games-posted">Games Posted : <strong>{{user["games_posted"]}}</strong></p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

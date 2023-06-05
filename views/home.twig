@@ -28,20 +28,30 @@
 	</div>
 	<div id="games-section">
 		<div id="trending-games">
-			<h1>Trending Games</h1>
+			<h1>Latest Games</h1>
 			<div id="games">
-				<div id="game">
-					<div id="top-detail">
-						<a href="#">
-							<img src="/images/Icon.png" alt="">
-						</a>
-						<a href="#">Game</a>
+				{% for game in games %}
+					<div id="game">
+						<div id="top-detail">
+							<a href="/game/{{game["id"]}}">
+								{% for avatars in avatar %}
+									{% if avatars["id"] == game["primary_picture_id"] %}
+										<img id="user-pfp" src="{{avatars["uri"]}}" alt="">
+									{% endif %}
+								{% endfor %}
+							</a>
+							<div id="top-bottom-detail">
+								<a href="/game/{{game["id"]}}">{{game["name"]}}</a>
+							</div>
+						</div>
+						<div id="bottom-detail">
+								{% if not game["is_verified"] %}
+									<p>⚠️ Not Verified</p>
+								{% endif %}
+							<p>{{game["posted_at"]}}</p>
+						</div>
 					</div>
-					<div id="bottom-detail">
-						<p>Genre</p>
-						<p>Date</p>
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>

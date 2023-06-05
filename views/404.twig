@@ -1,6 +1,19 @@
 {% extends "templates/master.twig" %}
 {% block body %}
-    <h1 style="color: red; font-size:30px; width:100%; text-align:center;margin: 20px auto;">
-        Error 404 {{uri}} Not Found
-    </h1>
+    {% if game %}
+        <h1 style="color: red; font-size:30px; width:100%; text-align:center;margin: 20px auto;">
+            Error 404 Game Not Found
+        </h1>
+    {% if user %}
+         <h1 style="color: red; font-size:30px; width:100%; text-align:center;margin: 20px auto;">
+            Error 404 User Not Found
+        </h1>
+    {% endif %}
+    {% else %}
+         <h1 style="color: red; font-size:30px; width:100%; text-align:center;margin: 20px auto;">
+            Error 404 {{uri}} Not Found
+        </h1>
+    {% endif %}
+    
+
 {% endblock %}

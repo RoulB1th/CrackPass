@@ -5,7 +5,8 @@ namespace App\controllers;
 require_once ROOT . '/functions.php';
 require_once ROOT . '/validator/validation.php';
 
-define("MAX_SIZE", 26214400);
+define("MAX_SIZE", 5621440);
+
 
 use Bulletproof\Image;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +30,16 @@ class register
 
         $image = new Image($_FILES);
 
-        $db = new database;
+        $db = new database;      
+        $attempts = rateLimit();
+
+        if($attempts){
+            $errors["limit"] = "Please Try Again Later";
+            view("register",[
+                "errors"=>$errors
+            ]);
+            die();
+        }
 
         #In Case They Uploaded Their FIle :-)
         $avatarId = null;
@@ -51,10 +61,11 @@ class register
         if($image["picture"]){
             $size = $image->getSize();
             if($size > MAX_SIZE){
-                $errors['file'] = "A File Size Must Be Smaller Than 20MB";
+                $errors['file'] = "A File Size Must Be Smaller Than 5MB";
             }
+            $image->setMime(array("jpg","jpeg","png"));
             $fileType = $image->getMime();
-            if($fileType == "png" || $fileType == "gif" || $fileType == "jpg"){
+            if($fileType == "png" || $fileType == "jpeg"|| $fileType == "jpg"){
                 
             }else{
                 $errors['file'] = "File Format Must Be PNG,JPG Or Gif";
@@ -64,8 +75,8 @@ class register
                 mkdir($path,0775,true);
                 $image->setStorage($path);
                 $image->setName(date("hms"));
-                $uri = 'images/'.date("dmyhms") . '/' . $image->getSize() . '/' . $image->getName() . '.' . $image->getMime();
                 $image->upload();
+                $uri = 'images/'.date("dmyhms") . '/' . $image->getSize() . '/' . $image->getName() . '.' . $image->getMime();
                 $db->query("INSERT INTO avatar(uri,is_games) VALUES(:uri, :is_games)",[
                     "uri"=>$uri,
                     "is_games"=>0
@@ -82,8 +93,19 @@ class register
 
         }else{
             if(empty($errors)){
-                $avatar  = $db->query("SELECT * FROM avatar WHERE uri='images/GuestPFP.png'");
-                $avatarId = $avatar->fetchAssociative()["id"];
+                $uri = 'images/GuestPFP.png';
+                $avatar  = $db->query("SELECT * FROM avatar WHERE uri=:id",[
+                    "id"=>$uri
+                ]);
+                $avatarId = $avatar->fetchAssociative()["id"] ?? null;
+                if($avatarId == null){
+                    $db->query("INSERT INTO avatar(uri, is_games) VALUES(:uri, 1)",[
+                        "uri"=>$uri
+                    ]);
+                    $avatar_id = $db->query("SELECT * FROM avatar WHERE uri=:uri",[
+                        "uri"=>$uri
+                    ])->fetchAssociative()["id"];
+                }
             }else{
                 view("register",[
                     "errors"=>$errors

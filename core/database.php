@@ -33,4 +33,9 @@ class database{
         $results = static::$conn->executeQuery(static::$query,$args);
         return $results;
     }
+    public static function build()
+    {
+        $builder = static::$conn->createQueryBuilder();
+        return $builder;
+    }
 }

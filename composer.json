@@ -22,6 +22,7 @@
         "doctrine/dbal": "^3.6",
         "vlucas/phpdotenv": "^5.5",
         "filp/whoops": "^2.15",
-        "samayo/bulletproof": "5.0.*"
+        "samayo/bulletproof": "5.0.*",
+        "symfony/var-dumper": "^6.3"
     }
 }

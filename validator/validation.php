@@ -28,3 +28,23 @@ function validateEmail(string $email) : bool
 {
     return v::email()->validate($email); 
 }
+function validateDescription(string $description) : bool
+{
+
+    $descValidator = new Rules\AllOf(
+        new Rules\Length(200, 1000),
+    );
+
+    return $descValidator->validate($description);
+
+}
+function validateTitle(string $title) : bool
+{
+
+    $titleValidator = new Rules\AllOf(
+        new Rules\Length(2, 40),
+    );
+
+    return $titleValidator->validate($title);
+
+}

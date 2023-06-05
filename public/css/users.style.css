@@ -1,0 +1,31 @@
+#users-area{
+    display: flex;
+    width: 100%;
+}
+#users{
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+#user{
+    background-color: gray;
+    padding: 5px 10px;
+    border: 2px solid black;
+    box-shadow: 4px 8px black;
+    width: 300px;
+    max-width: 300px;
+}
+#user-pfp{
+    width: 100px;
+    border-radius: 50%;
+}
+#games-posted{
+    font-size: 20px;
+}
+#games-posted strong{
+    color: red;
+    font-weight: 700;
+}
